@@ -12,6 +12,14 @@ dp = Dispatcher()
 async def start_handler(message: Message):
     await message.answer("Привет! Бот работает!")
 
+@dp.message(Command("help"))
+async def help_handler(message: Message):
+    await message.answer(
+        "/start - приветствие\n"
+        "/help - помощь по командам\n"
+        "/team - информации по команде\n"
+        )
+
 # Функция запуска бота
 async def main():
     try:
