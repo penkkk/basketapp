@@ -1,11 +1,15 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import Message
 from aiogram.filters import Command
-from config import Config
+from bot.config import Config
+from bot.services.infobaket_api import InfoBasketAPI
 import asyncio
 
 bot = Bot(token=Config.BOT_TOKEN)
+team_id = Config.TEAM_ID
+comp_id = Config.COMP_ID
 dp = Dispatcher()
+
 
 # Хендлер на команду /start
 @dp.message(Command("start"))
