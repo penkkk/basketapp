@@ -1,18 +1,14 @@
 from aiogram import Bot, Dispatcher, types
-from aiohttp_socks import ProxyConnector
 from bot.config import Config
 from bot.handlers import routers
 import asyncio
     
 async def main():
-    
-    connector = ProxyConnector.from_url(Config.PROXY_URL)
-    bot = Bot(token=Config.BOT_TOKEN, proxy=connector)
+    bot = Bot(token=Config.BOT_TOKEN)
     dp = Dispatcher()
     
     for router in routers:
         dp.include_router(router)
-    
     print("Бот запущен")
     await dp.start_polling(bot)
 

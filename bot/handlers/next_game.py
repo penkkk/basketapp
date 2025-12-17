@@ -1,4 +1,4 @@
-from aiogram import Router, types
+from aiogram import Router, types, F
 from aiogram.types import Message
 from aiogram.filters import Command
 from bot.services.infobasket_api import InfoBasketAPI
@@ -32,3 +32,7 @@ async def next_game(message: Message):
             text += f"{number}. {team_A} VS {team_B} | {date_time}\n\n"
     await message.answer(text)
 
+@router.message(F.text == "🏀 Расписание")
+async def next_games_button(message: Message):
+    await next_game(message)
+    
