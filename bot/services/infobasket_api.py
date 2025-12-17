@@ -13,6 +13,6 @@ class InfoBasketAPI:
         return r.json() if r.status_code == 200 else None
 
     def get_team_schedule(self):
-        url = f"{self.BASE_URL}/TeamSchedule/{self.team_id}?compId={self.comp_id}&format=json&lang=ru"
+        url = f"{self.BASE_URL}/TeamGames/{self.team_id}?compId={self.comp_id}&format=json&lang=ru"
         r = requests.get(url)
         return r.json() if r.status_code == 200 else None
