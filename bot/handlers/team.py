@@ -30,7 +30,7 @@ async def team_handler(message: Message):
         height = player.get("Height")
         position = player.get("Position")
         weight = player.get("Weight")
-        text += f"{player_number} - {person_full_name_ru}\nПозиция: {position}\nРост: {height}, Вес: {weight}\n---------------------------\n"
+        text += f"{player_number} - {person_full_name_ru}\nПозиция: {position}\nРост: {height}, Вес: {weight}\n---------------------------------------------------------------\n"
         
     await message.answer(text)
 
