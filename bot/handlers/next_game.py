@@ -13,16 +13,16 @@ router = Router()
 
 @router.message(Command("nextgame"))
 async def next_game(message: Message):
-    roster = infobasket_api.get_team_schedule()
+    shedule = infobasket_api.get_team_schedule()
     
-    if roster is None:
+    if shedule is None:
         await message.answer("Не удалось найти предстоящие игры")
         return
     
-    text = "Предстоящие встречи: \n\n"
+    text = "📆 Предстоящие встречи: \n\n"
     number = 0
     
-    for match in roster:
+    for match in shedule:
         game_status = match.get("GameStatus")
         if game_status == 0:
             number += 1

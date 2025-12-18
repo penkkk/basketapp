@@ -61,6 +61,6 @@ async def stat_team_handler(message: Message):
         
     await message.answer(text)
     
-@router.message(F.text == "Статистика команды")
+@router.message(F.text == "📈 Статистика команды")
 async def stat_team_from_button(message: Message):
     await stat_team_handler(message)

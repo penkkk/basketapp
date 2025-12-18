@@ -10,7 +10,6 @@ COMP_ID = Config.COMP_ID
 infobasket_api = InfoBasketAPI(TEAM_ID, COMP_ID)
 
 router = Router()
-
 @router.message(Command("team"))
 async def team_handler(message: Message):
     
@@ -23,7 +22,7 @@ async def team_handler(message: Message):
     
     text = "📋 Состав команды: \n\n"
     
-    for number, player in enumerate(players):
+    for player in players:
         person_info = player.get("PersonInfo", {})
         person_full_name_ru = person_info.get("PersonFullNameRu", "")
         player_number = player.get("PlayerNumber")
