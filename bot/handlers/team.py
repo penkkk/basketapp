@@ -21,12 +21,16 @@ async def team_handler(message: Message):
         await message.answer("Не удалось найти состав команды")
         return
     
-    text = "Состав команды: \n\n"
+    text = "📋 Состав команды: \n\n"
     
     for number, player in enumerate(players):
         person_info = player.get("PersonInfo", {})
         person_full_name_ru = person_info.get("PersonFullNameRu", "")
-        text += f"{number + 1}. {person_full_name_ru}\n\n"
+        player_number = player.get("PlayerNumber")
+        height = player.get("Height")
+        position = player.get("Position")
+        weight = player.get("Weight")
+        text += f"{player_number} - {person_full_name_ru}\nПозиция: {position}\nРост: {height}, Вес: {weight}\n---------------------------\n"
         
     await message.answer(text)
 
