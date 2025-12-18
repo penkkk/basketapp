@@ -9,3 +9,8 @@ main = ReplyKeyboardMarkup(keyboard=[
 ],                                          resize_keyboard=True,
                                             input_field_placeholder="Выберите пункт из меню.")
 
+stat = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text="Статистика команды")],
+    [KeyboardButton(text="Cтатистика игрока")]
+],                                          resize_keyboard=True,
+                                            input_field_placeholder="Выберите чью статистику вы хотите посмотреть")
