@@ -4,10 +4,10 @@ from bot.services.get_full_roster import full_roster
 async def inline_roster():
     keyboard = []
 
-    for idx, player_name in enumerate(full_roster):
+    for name, id in full_roster.items():
         keyboard.append([
             InlineKeyboardButton(
-                text=player_name,
-                callback_data=f"player:{idx}")])
+                text=name,
+                callback_data=f"player:{id}")])
 
     return InlineKeyboardMarkup(inline_keyboard=keyboard)
